@@ -6,8 +6,9 @@ import {React, useState} from 'react'
 function App() {
   return (  
     <div>
-      <Home/>
-      </div>    
+    <Home />
+    <ProductList />  
+    </div>
   );
 }
 export default App;
