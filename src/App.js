@@ -1,8 +1,13 @@
 import './App.css';
-import ProductList from './components/ProductList';
+import Home from './components/Home';
+import ProductList from './components/productList';
+import {React, useState} from 'react'
+
 function App() {
-  return (
-    <ProductList/>
+  return (  
+    <div>
+      <Home/>
+      </div>    
   );
 }
 export default App;
