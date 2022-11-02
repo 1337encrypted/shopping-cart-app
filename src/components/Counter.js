@@ -8,7 +8,7 @@ const handleClick=()=>{
 }
   return (
     <div>
-      {count}
+      <button className='btn btn-danger m-3'>{count}</button>
       <button onClick={handleClick}>Increment</button>
     </div>
   )
