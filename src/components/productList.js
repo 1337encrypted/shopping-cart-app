@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
-
+import Home from "./Home";
+import Cart from "./Cart";
 let prod = {
   Computers: 
   [{pid:100,pname:"Macbook Mac studio",price:80000, ImageUrl:"https://d2d22nphq0yz8t.cloudfront.net/88e6cc4b-eaa1-4053-af65-563d88ba8b26/https://media.croma.com/image/upload/v1606585990/Croma%20Assets/Computers%20Peripherals/Desktops/Images/9009476698142.png/mxw_2256,s_jp2,s_videoimg,ns_atwebp,f_auto"},
@@ -16,9 +17,10 @@ let prod = {
   {pid:301,pname:"Dell OptiPlex 7000",price:93267, ImageUrl: "https://i.dell.com/is/image/DellContent/content/dam/ss2/products/desktops-and-all-in-ones/optiplex/7000-tsff/media-gallery/optiplex-7000t-gallery-1.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=402&qlt=100,1&resMode=sharp2&size=402,402&chrss=full"},
   {pid:302,pname:"Dell T440 tower server",price:132000, ImageUrl: "https://www.eagle.in/wp-content/uploads/2018/10/Dell-T440-Server.jpg"}]
 }
+var cart=[]
 
 function ProductList() {
-
+  const [count,setCount]=useState(0);
   const [AllProds,setProds] = useState([]);
 
   const handleClickComputers=()=>{
@@ -36,25 +38,47 @@ function ProductList() {
     setProds(AllServers);
   }
 
+  function addtocart(id){
+    setCount(count+1);
+    cart.push({
+              pid:AllProds.find(item=>(item.pid===id)).pid,
+              name:AllProds.find(item=>(item.pid===id)).pname,
+              price:AllProds.find(item=>(item.pid===id)).price})    
+  }
   
   return (
-    <div style={{"width":"70%", "text-align":"center","background-color":"cyan"}}>
-      <h1 className='text-center text-info'>Product List</h1>
-      <div className='container-fluid mx-2'></div>
-      <div className='row mt-3 mx-2'>
-        <div className='col-md-4'>
-          <button className='btn btn-warning' onClick={handleClickComputers} >Computers</button>
-          <button className='btn btn-warning' onClick={handleClickLaptops} >Laptops</button>
-          <button className='btn btn-warning' onClick={handleClickServers} >Servers</button>
+    <div>
+      <Home cartCount={count}/>
+      <div style={{"display":"flex"}}>
+        <div style={{"width":"70%", "textAlign":"center","backgroundColor":"cyan","margin":"10px"}}>
+          <h1 className='textCenter text-info'>Product List</h1>
+          <div className='containerFluid mx-2'></div>
+          <div className='row mt-3 mx-2'>
+            <div className='col-md-4'>
+              <button className='btn btn-warning' onClick={handleClickComputers} >Computers</button>
+              <button className='btn btn-warning' onClick={handleClickLaptops} >Laptops</button>
+              <button className='btn btn-warning' onClick={handleClickServers} >Servers</button>
 
-          <center><ul className='text-center bg-red'>
-           {AllProds.map(prod=><li style={{"display":"flex", "flex-direction":"col", "margin":"10px", "justify-content":"center"}} key={prod.pid}>{prod.pname} <img src={prod.ImageUrl} alt="image" width="100px" height="100px" /> {prod.price} <button className='btn btn-secondary '>Add To Cart</button> </li>)}
-          </ul></center>
+              <center><ul className='textCenter bg-red'>
+              {AllProds.map(prod=>
+                <li style={{"display":"flex", "flexDirection":"col", "margin":"10px", "justifyContent":"center"}} key={prod.pid}>
+                  {prod.pname} 
+                  <img src={prod.ImageUrl} alt="image" width="100px" height="100px" /> 
+                  {prod.price} 
+                  <button className='btn btn-secondary' onClick={()=>addtocart(prod.pid)}>Add To Cart</button> </li>)}
+              </ul></center>
 
+            </div>
+          </div>
+        </div>
+        <div style={{"width":"30%", "textAlign":"center","backgroundColor":"cyan","margin":"10px"}}>
+          <h3>Your Cart</h3>
+          {cart.map(item=>(
+            <Cart key={item.pid} pid={item.pid} name={item.name} price={item.price}/>
+          ))}
         </div>
       </div>
     </div>
-
   )
 }
 
