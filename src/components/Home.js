@@ -1,28 +1,37 @@
 import React from 'react'
 import Counter from './Counter'
 
-function Home() {
+function Home(props) {
   return (
-    <div style={{backgroundColor:"purple", padding:"10px"}}>
-        <div style={{display:"flex", justifyContent:"space-between"}}>
+    <div>
+
+     <div style={{backgroundColor:"purple", padding:"10px", justifyContent:"space-between"}}>
+      <div style={{display:"flex", justifyContent:"space-between"}}>
+        {/* {props.cartCount} */}
+        {/* <h1 className='text-center'>Shopping Cart</h1> */}
+        {/* { <img src="https://image.shutterstock.com/image-vector/shopping-cart-vector-icon-flat-260nw-1690453492.jpg" alt='Cart' width="60px" height="60px "></img> } */}
+
 
         <Counter/>
-        <h1 className='text-center'>Shopping Cart</h1>
-        <img src="https://image.shutterstock.com/image-vector/shopping-cart-vector-icon-flat-260nw-1690453492.jpg" alt='Cart' width="60px" height="60px "></img>
+
+        <h1 className='text-center'>Shopping Cart</h1> 
+        <img src="https://image.shutterstock.com/image-vector/shopping-cart-vector-icon-flat-260nw-1690453492.jpg" alt='Cart' width="60px" height="60px "></img> 
 
         </div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      </div>
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
         {/* <a class="navbar-brand" href="#">Navbar</a> */}
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown" style={{backgroundColor:"yellow"}}>
         <ul class="navbar-nav">
         <li class="nav-item active">
         <a class="nav-link" href="#" style={{color:"deeppink"}}>Home</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="#" style={{color:"green"}}>Customer Care</a>
+        <a class="nav-link" href="#" style={{color:"darkgreen"}}>Customer Care</a>
         </li>
         <li class="nav-item">
         <a class="nav-link" href="#" style={{color:"navy"}}>About Us</a>
@@ -39,8 +48,8 @@ function Home() {
         </li>
         </ul>
         </div>
-        </nav>
-        </div>
+      </nav>
+    </div>
   )
 }
 
