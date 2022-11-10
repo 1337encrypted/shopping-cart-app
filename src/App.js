@@ -1,5 +1,5 @@
 import './App.css';
-import Home from './components/Homebackup';
+import Home from './components/Home';
 import ProductList from './components/productList';
 import {React, useState} from 'react'
 import Cart from './components/Cart';

@@ -7,15 +7,11 @@ function Home(props) {
 
      <div style={{backgroundColor:"purple", padding:"10px", justifyContent:"space-between"}}>
       <div style={{display:"flex", justifyContent:"space-between"}}>
-        {/* {props.cartCount} */}
-        {/* <h1 className='text-center'>Shopping Cart</h1> */}
-        {/* { <img src="https://image.shutterstock.com/image-vector/shopping-cart-vector-icon-flat-260nw-1690453492.jpg" alt='Cart' width="60px" height="60px "></img> } */}
 
-
-        <Counter/>
+        <Counter cartCount={props.cartCount}/>
 
         <h1 className='text-center'>Shopping Cart</h1> 
-        <img src="https://image.shutterstock.com/image-vector/shopping-cart-vector-icon-flat-260nw-1690453492.jpg" alt='Cart' width="60px" height="60px "></img> 
+        <img src="https://img.icons8.com/3d-fluency/94/null/shopping-cart.png" alt='Cart' width="60px" height="60px "></img> 
 
         </div>
       </div>
