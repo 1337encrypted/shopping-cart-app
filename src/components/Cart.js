@@ -1,24 +1,23 @@
 import React,{useState,useEffect} from 'react'
-
+import "./Cart.css"
 function Cart(props) {
-  const [qty,setQty]=useState([0,0,0,0,0,0,0,0,0]);
-  var cart=new Map()
-  var temp=[]
-
-  useEffect=()=>{
-    temp.push({
-      name:props.name,
-      price:props.price
-    })
-    cart.push()
-  }
-
   return (
     <div>
-        <ul>
-            <li key={props.pid}>{props.name}  {qty[props.pid-100]}  {props.price}</li>
-            
-        </ul>
+      <table>
+        {/* <tr>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Total</th>
+        </tr> */}
+        <tr key={props.pid}>
+          <td>{props.name}</td>
+          <td>{props.qty}</td>
+          <td>{props.price}</td>
+          <td>{props.qty*props.price}</td>
+        </tr>
+       
+      </table>
     </div>
   )
 }

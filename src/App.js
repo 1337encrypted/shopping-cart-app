@@ -1,12 +1,13 @@
 import './App.css';
-import Home from './components/Home';
+import Home from './components/Homebackup';
 import ProductList from './components/productList';
 import {React, useState} from 'react'
+import Cart from './components/Cart';
 
 function App() {
   return (  
     <div>
-    <ProductList />  
+      <ProductList /> 
     </div>
   );
 }
