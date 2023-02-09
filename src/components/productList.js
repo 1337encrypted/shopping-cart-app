@@ -4,7 +4,7 @@ import Cart from "./Cart";
 import "./Cart.css"
 
 let prod = new Promise((resolve, reject) => {
-  fetch("https://shopping-cart-backend.sbtopzzzlg.repl.co/products")
+  fetch("http://localhost:3333/products")
     .then(response => {
       response.json()
         .then(json => resolve(json.data.products))
@@ -19,7 +19,7 @@ var cart=[]
 function ProductList() {
   const [count,setCount]=useState(0);
   const [AllProds,setProds] = useState([]);
-  const [cart,setCart] = useState([]);
+  let [cart,setCart] = useState([]);
 
   const handleClickComputers= async ()=>{
     let Allcomputers = (await prod).filter(product => product.category === "Computers");
@@ -121,7 +121,13 @@ function ProductList() {
             </tr>
           </table>
           {cart.map(item=>(
-            <Cart pid={item.pid} name={item.name} price={item.price} qty={qty[item.pid]}/>
+            <Cart pid={item.pid} name={item.name} price={item.price} qty={qty[item.pid]} delete={() => {
+              if (--qty[item.pid] === 0) {
+                setCart(cart => cart.filter(item2 => item2.pid != item.pid));
+              } else {
+                setCart(cart => [...cart]);
+              }
+            }} />
           ))}
         </div>
       </div>

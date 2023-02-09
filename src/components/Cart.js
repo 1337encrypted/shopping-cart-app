@@ -14,7 +14,8 @@ function Cart(props) {
           <td>{props.name}</td>
           <td>{props.qty}</td>
           <td>{props.price}</td>
-          <td>{props.qty*props.price}</td>
+          <td>{props.qty * props.price}</td>
+          <td><button className='btn btn-primary' onClick={props.delete} href="#">Delete</button></td>
         </tr>
        
       </table>
