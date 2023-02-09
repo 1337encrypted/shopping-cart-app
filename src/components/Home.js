@@ -1,7 +1,10 @@
 import React from 'react'
 import Counter from './Counter'
+import { useNavigate } from 'react-router-dom';
 
 function Home(props) {
+  const navigate = useNavigate();
+
   return (
     <div>
 
@@ -30,7 +33,7 @@ function Home(props) {
         <a class="nav-link" href="#" style={{color:"darkgreen"}}>Customer Care</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="#" style={{color:"navy"}}>About Us</a>
+        <a class="nav-link" href="#" style={{color:"navy"}} onClick={() => navigate("/about")}>About Us</a>
         </li>
         <li class="nav-item dropdown">
         {/* <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> */}
